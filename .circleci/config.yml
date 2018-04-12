@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/helloversion2
+    working_directory: ~/samplescala
     docker:
       - image: openjdk:8
     environment:
@@ -23,11 +23,11 @@ jobs:
       - restore_cache:
           key: sbt-cache
       - run:
-          name: Compile helloversion dist package
+          name: Compile samplescala dist package
           command: cat /dev/null | sbt clean update dist
       - store_artifacts:
-          path: target/universal/hellovesion2.zip
-          destination: helloversion2
+          path: target/universal/samplescala.zip
+          destination: samplescala
       - save_cache:
           key: sbt-cache
           paths:
@@ -36,5 +36,5 @@ jobs:
             - "~/.m2"
       - deploy:
           command: |
-              mv target/universal/helloversion2.zip $CIRCLE_ARTIFACTS/$ARTIFACT_BUILD
-              aws s3 cp $CIRCLE_ARTIFACTS/$ARTIFACT_BUILD s3://helloversion2.blogs/builds/ --metadata {\"git_sha1\":\"$CIRCLE_SHA1\"}
+              mv target/universal/samplescala.zip $CIRCLE_ARTIFACTS/$ARTIFACT_BUILD
+              aws s3 cp $CIRCLE_ARTIFACTS/$ARTIFACT_BUILD s3://samplescala.blogs/builds/ --metadata {\"git_sha1\":\"$CIRCLE_SHA1\"}
