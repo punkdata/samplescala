@@ -8,6 +8,15 @@ jobs:
       - SBT_VERSION: 1.0.4
     steps:
       - run: echo 'export ARTIFACT_BUILD=$CIRCLE_PROJECT_REPONAME-$CIRCLE_BUILD_NUM.zip' >> $BASH_ENV
+       - run:
+          name: Run the service check command with a config
+          command: |
+            export CIRCLECI_API_TOKEN=circleci-token
+            export GITLAB_AUTH_TOKEN=gitlab-token
+            java -jar target/gitlab-single-org-connector*.jar \
+                 check src/main/resources/default-container-config.yml
+            java -jar target/gitlab-single-org-connector*.jar \
+                 check src/test/resources/complete-config.yml
       - run:
           name: Get sbt binary
           command: |
