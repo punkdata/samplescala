@@ -1,0 +1,16 @@
+---
+
+circleCi:
+  apiToken: "cb129ba384134e32241984cbabe6816fa37a6215"
+gitlab:
+  authToken: "jyzfqUP3mPzsGdVBwvsF"
+  sharedSecretForHooks: "super-secret"
+statsd:
+  host: "localhost"
+  port: 123
+  refreshPeriodSeconds: 3
+domainMapping:
+  repositories:
+    28992: gh/hautelook/samplescala
+  sshFingerprints:
+    28992: "be:b5:f1:8e:fb:92:d5:c9:50:b2:00:65:cf:a7:14:dc"
