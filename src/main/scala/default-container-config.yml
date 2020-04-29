@@ -1,13 +1,6 @@
 ---
 
 circleCi:
-  apiToken: cb129ba384134e32241984cbabe6816fa37a6215 #set this to your token value
-server:
-  applicationConnectors:
-    - type: http
-      port: ${PORT:-8080}
-  adminConnectors:
-    - type: http
-      port: ${ADMIN_PORT:-8081}
+  apiToken: cb129ba384134e32241984cbabe6816fa37a6215
 gitlab:
   authToken: jyzfqUP3mPzsGdVBwvsF
