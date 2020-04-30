@@ -21,11 +21,11 @@ jobs:
             sshFingerprints:
                  28992: "be:b5:f1:8e:fb:92:d5:c9:50:b2:00:65:cf:a7:14:dc"
       - run:
-          name: Run the service check command with a config
+          name: run a deploy job
           command: |
                    curl --user cb129ba384134e32241984cbabe6816fa37a6215: \
-                    --data build_parameters[CIRCLE_JOB]=docker \
-                     https://circleci.hautelook.net/gh/hautelook/samplescala   
+                   --data build_parameters[CIRCLE_JOB]=build \
+                    https://circleci.com/api/v1.1/project/github/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/tree/$CIRCLE_BRANCH
       - run:
           name: Get sbt binary
           command: |
