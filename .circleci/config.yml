@@ -26,7 +26,7 @@ jobs:
                    curl --user cb129ba384134e32241984cbabe6816fa37a6215: \
                    --data build_parameters[CIRCLE_JOB]=deploy \
                    --data revision=1766d283e99011e644e3fbcfd43be5e4066ce75f \
-                    https://circleci.com/api/v1.1/project/github/hautelook/samplescala/tree/master
+                    https://circleci.hautelook.net/gh/hautelook/samplescala/tree/master
       - run:
           name: Get sbt binary
           command: |
