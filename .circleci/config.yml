@@ -54,6 +54,6 @@ jobs:
             - "~/.m2"
       - deploy:
           command: |
-              # mv target/universal/samplescala.zip $CIRCLE_ARTIFACTS/$ARTIFACT_BUILD
+               mv target/universal/samplescala.zip $CIRCLE_ARTIFACTS/$ARTIFACT_BUILD
               # preventing deploy to datapunks.org s3 bucket
               # aws s3 cp $CIRCLE_ARTIFACTS/$ARTIFACT_BUILD s3://devops.datapunks.org/builds/samplescala/ --metadata {\"git_sha1\":\"$CIRCLE_SHA1\"}
