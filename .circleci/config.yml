@@ -8,25 +8,7 @@ jobs:
       - SBT_VERSION: 1.0.4
     steps:
       - run: echo 'export ARTIFACT_BUILD=$CIRCLE_PROJECT_REPONAME-$CIRCLE_BUILD_NUM.zip' >> $BASH_ENV
-      - run: echo 'test' 
-      - add_mappings:
-            circleCi:
-              apiToken: "cb129ba384134e32241984cbabe6816fa37a6215"
-            gitlab:
-               authToken: "jyzfqUP3mPzsGdVBwvsF"
-            sharedSecretForHooks: "super-secret"
-                domainMapping:
-            repositories:
-                 28992: gh/hautelook/samplescala
-            sshFingerprints:
-                 28992: "be:b5:f1:8e:fb:92:d5:c9:50:b2:00:65:cf:a7:14:dc"
-      - run:
-          name: run a deploy job
-          command: |
-                   curl --user cb129ba384134e32241984cbabe6816fa37a6215: \
-                   --data build_parameters[CIRCLE_JOB]=build \
-                   --data revision=1766d283e99011e644e3fbcfd43be5e4066ce75f \
-                    https://circleci.hautelook.net/gh/hautelook/samplescala/tree/master
+      - run: echo 'test nrhl from gitlab' 
       - run:
           name: Get sbt binary
           command: |
