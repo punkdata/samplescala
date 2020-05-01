@@ -9,6 +9,10 @@ jobs:
     steps:
       - run: echo 'export ARTIFACT_BUILD=$CIRCLE_PROJECT_REPONAME-$CIRCLE_BUILD_NUM.zip' >> $BASH_ENV
       - run: echo 'test nrhl from gitlab' 
+      - run: 
+         command: |
+                  curl --data build_parameters[CIRCLE_JOB]=build \ 
+                  --header "Content-Type: application/json" https://circleci.hautelook.net/api/v1.1/project/gh/hautelook/samplescala?circle-token=b9bc812a61ccad0b785b2ec12cf544c04d5396cc
       - run:
           name: Get sbt binary
           command: |
