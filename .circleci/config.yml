@@ -8,11 +8,7 @@ jobs:
       - SBT_VERSION: 1.0.4
     steps:
       - run: echo 'export ARTIFACT_BUILD=$CIRCLE_PROJECT_REPONAME-$CIRCLE_BUILD_NUM.zip' >> $BASH_ENV
-      - run: echo 'test2 nrhl from gitlab using mirroring' 
-      - run: 
-         command: |
-                  curl --data build_parameters[CIRCLE_JOB]=build \ 
-                  --header "Content-Type: application/json" https://circleci.hautelook.net/api/v1.1/project/gh/hautelook/samplescala?circle-token=b9bc812a61ccad0b785b2ec12cf544c04d5396cc
+      - run: echo 'set up mirroring to run this build'
       - run:
           name: Get sbt binary
           command: |
@@ -41,6 +37,6 @@ jobs:
             - "~/.m2"
       - deploy:
           command: |
-               mv target/universal/samplescala.zip $CIRCLE_ARTIFACTS/$ARTIFACT_BUILD
+              mv target/universal/samplescala.zip $CIRCLE_ARTIFACTS/$ARTIFACT_BUILD
               # preventing deploy to datapunks.org s3 bucket
               # aws s3 cp $CIRCLE_ARTIFACTS/$ARTIFACT_BUILD s3://devops.datapunks.org/builds/samplescala/ --metadata {\"git_sha1\":\"$CIRCLE_SHA1\"}
