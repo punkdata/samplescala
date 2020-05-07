@@ -5,6 +5,6 @@ gitlab:
   sharedSecretForHooks: "special-token"
 domainMapping:
   repositories:
-    28993: gh/hautelook/samplescala
+    42441: gh/hautelook/samplescala
   sshFingerprints:
-    28993: "be:b5:f1:8e:fb:92:d5:c9:50:b2:00:65:cf:a7:14:dc"
+    42441: "be:b5:f1:8e:fb:92:d5:c9:50:b2:00:65:cf:a7:14:dc"
